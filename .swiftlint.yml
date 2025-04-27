@@ -1,0 +1,86 @@
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - missing_docs
+
+  # Find all the available rules by running:
+  # swiftlint rules
+
+included: # paths to include during linting. `--path` is ignored if present.
+  - J-PIC-iOS
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly
+
+force_try:
+  severity: warning # explicitly
+
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length: 200
+
+# they can set both implicitly with an array
+type_body_length:
+  - 300
+  - 450 # swiftlintの再導入にあたって規制をゆるくした(2024/07/23)。
+
+# or they can set both explicitly
+file_length:
+  warning: 500
+  error: 1200
+
+function_parameter_count:
+  warning: 5
+  error: 12
+
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 4 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+  excluded: iPhone # excluded via string
+
+variable_name:
+  min_length: # only min_length
+    error: 2 # only error
+  excluded: # excluded via string array
+    - c
+    - m
+    - e
+    - p
+    - vc
+    - nc
+    - sc
+    - sb
+    - id
+    - ui
+    - URL
+    - GlobalAPIKey
+  allowed_symbols: "_"
+
+cyclomatic_complexity:
+  warning: 200 # two nested ifs are acceptable
+  error: 500   # six nested ifs shows warning, 6 causes compile error
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit)
+
+function_body_length:
+  warning: 50
+  error: 120 # swiftlintの再導入にあたって規制をゆるくした(2024/07/23)。
+
+large_tuple:
+  warning: 2
+  error: 5 # swiftlintの再導入にあたって規制をゆるくした(2024/07/23)。
+
+inclusive_language:
+  override_allowed_terms: # 警告が多すぎてlintが形骸化しているため、いったんルールを無効化(2024/12/27)
+    - master
+    - whitelist
+
+disabled_rules:
+  - nesting
+  - trailing_whitespace

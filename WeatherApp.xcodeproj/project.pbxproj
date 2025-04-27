@@ -195,6 +195,9 @@
 			);
 			mainGroup = 66CC7A4F2DBE696000D398EF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 66CC7A592DBE696000D398EF /* Products */;
 			projectDirPath = "";
@@ -550,6 +553,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 66CC7A502DBE696000D398EF /* Project object */;
 }
