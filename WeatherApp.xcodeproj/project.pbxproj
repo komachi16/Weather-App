@@ -106,6 +106,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				66CC7AA82DBE7B5B00D398EF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				66CC7A5A2DBE696000D398EF /* WeatherApp */,
@@ -268,6 +269,10 @@
 			isa = PBXTargetDependency;
 			target = 66CC7A572DBE696000D398EF /* WeatherApp */;
 			targetProxy = 66CC7A702DBE696200D398EF /* PBXContainerItemProxy */;
+		};
+		66CC7AA82DBE7B5B00D398EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 66CC7AA72DBE7B5B00D398EF /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -564,6 +569,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		66CC7AA72DBE7B5B00D398EF /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 66CC7A502DBE696000D398EF /* Project object */;
 }
