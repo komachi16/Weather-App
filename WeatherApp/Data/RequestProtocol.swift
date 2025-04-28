@@ -1,19 +1,42 @@
 import Foundation
 
+/// `RequestProtocol` は、HTTPリクエストの基本的な構造を定義する
 public protocol RequestProtocol {
+    /// レスポンスの型
     associatedtype Response: Decodable
+
+    /// パラメータの型
     associatedtype Parameters: Encodable
 
+    /// リクエストヘッダー
     var headers: [String: String] { get }
+
+    /// HTTPメソッド
     var method: HTTPMethod { get }
+
+    /// リクエストパラメータ
     var parameters: Parameters { get }
+
+    /// クエリアイテム
     var queryItems: [URLQueryItem]? { get }
+
+    /// リクエストボディ
     var body: Data? { get }
+
+    /// ベースURL
     var baseURL: String { get }
+
+    /// エンドポイントのパス
     var path: String { get }
+
+    /// 成功時のハンドラー
     var successHandler: (Response) -> Void { get }
+
+    /// 失敗時のハンドラー
     var failureHandler: (Error) -> Void { get }
 
+    /// イニシャライザ
+    /// - Parameter parameters: リクエストに必要なパラメータ
     init(
         parameters: Parameters
     )
