@@ -3,7 +3,6 @@ import Foundation
 public protocol RequestProtocol {
     associatedtype Response: Decodable
     associatedtype Parameters: Encodable
-    associatedtype PathComponent
 
     var headers: [String: String] { get }
     var method: HTTPMethod { get }
@@ -16,8 +15,7 @@ public protocol RequestProtocol {
     var failureHandler: (Error) -> Void { get }
 
     init(
-        parameters: Parameters,
-        pathComponent: PathComponent
+        parameters: Parameters
     )
 }
 
@@ -46,6 +44,17 @@ extension RequestProtocol {
             first.name > second.name
         }
     }
+
+    var body: Data? {
+        guard method != .get else { return nil }
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+        return try? jsonEncoder.encode(parameters)
+    }
+
+    var successHandler: (Response) -> Void {{ _ in }}
+
+    var failureHandler: (Error) -> Void {{ _ in }}
 }
 
 private extension Encodable {

@@ -53,14 +53,15 @@ variable_name:
     - m
     - e
     - p
+    - q
     - vc
     - nc
     - sc
     - sb
     - id
     - ui
+    - dt
     - URL
-    - GlobalAPIKey
   allowed_symbols: "_"
 
 cyclomatic_complexity:

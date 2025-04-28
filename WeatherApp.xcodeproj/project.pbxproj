@@ -18,6 +18,8 @@
 		66CC7AF72DBF624A00D398EF /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7AF62DBF624A00D398EF /* APIError.swift */; };
 		66CC7AF92DBF62BE00D398EF /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7AF82DBF62BE00D398EF /* RequestProtocol.swift */; };
 		66CC7AFB2DBF650100D398EF /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7AFA2DBF650100D398EF /* HTTPMethod.swift */; };
+		66CC7AFE2DBF664E00D398EF /* GetWeatherForecastRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7AFD2DBF664E00D398EF /* GetWeatherForecastRequest.swift */; };
+		66CC7B012DBF6F3200D398EF /* GetWeatherForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B002DBF6F3200D398EF /* GetWeatherForecastResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		66CC7AF62DBF624A00D398EF /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		66CC7AF82DBF62BE00D398EF /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		66CC7AFA2DBF650100D398EF /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		66CC7AFD2DBF664E00D398EF /* GetWeatherForecastRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherForecastRequest.swift; sourceTree = "<group>"; };
+		66CC7B002DBF6F3200D398EF /* GetWeatherForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherForecastResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,12 +157,30 @@
 		66CC7AF02DBF533000D398EF /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				66CC7AFC2DBF65EC00D398EF /* Request */,
 				66CC7AF12DBF591A00D398EF /* APIClient.swift */,
 				66CC7AF62DBF624A00D398EF /* APIError.swift */,
 				66CC7AF82DBF62BE00D398EF /* RequestProtocol.swift */,
 				66CC7AFA2DBF650100D398EF /* HTTPMethod.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		66CC7AFC2DBF65EC00D398EF /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				66CC7AFF2DBF6F1900D398EF /* GetWeatherForecast */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		66CC7AFF2DBF6F1900D398EF /* GetWeatherForecast */ = {
+			isa = PBXGroup;
+			children = (
+				66CC7AFD2DBF664E00D398EF /* GetWeatherForecastRequest.swift */,
+				66CC7B002DBF6F3200D398EF /* GetWeatherForecastResponse.swift */,
+			);
+			path = GetWeatherForecast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,8 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				66CC7AEC2DBF483C00D398EF /* Region.swift in Sources */,
+				66CC7B012DBF6F3200D398EF /* GetWeatherForecastResponse.swift in Sources */,
 				66CC7ADF2DBF46BA00D398EF /* HomeView.swift in Sources */,
 				66CC7AFB2DBF650100D398EF /* HTTPMethod.swift in Sources */,
+				66CC7AFE2DBF664E00D398EF /* GetWeatherForecastRequest.swift in Sources */,
 				66CC7AE02DBF46BA00D398EF /* WeatherApp.swift in Sources */,
 				66CC7AF92DBF62BE00D398EF /* RequestProtocol.swift in Sources */,
 				66CC7AF72DBF624A00D398EF /* APIError.swift in Sources */,
