@@ -106,6 +106,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				66CC7AA82DBE7B5B00D398EF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				66CC7A5A2DBE696000D398EF /* WeatherApp */,
@@ -195,6 +196,10 @@
 			);
 			mainGroup = 66CC7A4F2DBE696000D398EF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				66CC7AC12DBE83DF00D398EF /* XCRemoteSwiftPackageReference "SwiftFormat" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 66CC7A592DBE696000D398EF /* Products */;
 			projectDirPath = "";
@@ -265,6 +270,10 @@
 			isa = PBXTargetDependency;
 			target = 66CC7A572DBE696000D398EF /* WeatherApp */;
 			targetProxy = 66CC7A702DBE696200D398EF /* PBXContainerItemProxy */;
+		};
+		66CC7AA82DBE7B5B00D398EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 66CC7AA72DBE7B5B00D398EF /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -550,6 +559,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.1;
+			};
+		};
+		66CC7AC12DBE83DF00D398EF /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.55.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		66CC7AA72DBE7B5B00D398EF /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 66CC7A502DBE696000D398EF /* Project object */;
 }
