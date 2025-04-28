@@ -11,10 +11,8 @@ struct WeatherView: View {
     }
 
     func getWeather() async {
-        let result = await APIClient().request(
-            item: GetWeatherForecastRequest(
-                parameters: .init(q: region.code)
-            )
+        let result = await ForecastRepository.getWeatherForecast(
+            parameter: .init(q: region.code)
         )
         switch result {
         case let .success(response):
