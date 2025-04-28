@@ -5,6 +5,7 @@ struct WeatherView: View {
     @State private var errorMessage: String?
     @State private var showAlert = false
     var region: Region
+    @Environment(\.presentationMode) var presentationMode
 
     init(region: Region) {
         self.region = region
@@ -56,7 +57,7 @@ struct WeatherView: View {
                     }
                 },
                 secondaryButton: .cancel(Text("戻る")) {
-                    // 戻るボタンが押された場合の処理
+                    presentationMode.wrappedValue.dismiss()
                 }
             )
         }
