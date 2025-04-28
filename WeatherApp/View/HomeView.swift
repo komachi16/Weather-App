@@ -14,7 +14,7 @@ struct HomeView: View {
             List {
                 ForEach(regions, id: \.self) { region in
                     NavigationLink {
-                        WeatherView()
+                        WeatherView(region: region)
                     } label: {
                         Text(region.name)
                     }
