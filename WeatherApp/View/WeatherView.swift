@@ -32,12 +32,12 @@ struct WeatherView: View {
 
     var body: some View {
         VStack {
-            List(forecasts, id: \.dt) { forecast in
+            List(forecasts, id: \.date) { forecast in
                 HStack {
                     Image(systemName: "cloud")
                     VStack(alignment: .leading) {
                         Text("\(forecast.temp)°C")
-                        Text("\(forecast.dt)")
+                        Text("\(forecast.date)")
                     }
                 }
             }

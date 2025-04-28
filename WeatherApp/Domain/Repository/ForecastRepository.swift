@@ -20,9 +20,11 @@ struct ForecastRepository: Repository {
     ) -> [WeatherForecast] {
         return response.list.map {
             WeatherForecast(
-                dt: $0.dt,
+                date: $0.dt.convertToJstDateString(),
                 temp: $0.main.temp,
-                weather: []
+                weather: $0.weather.map {
+                    .init(icon: $0.icon)
+                }
             )
         }
     }

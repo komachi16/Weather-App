@@ -24,6 +24,7 @@
 		66CC7B072DBFAF5D00D398EF /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B062DBFAF5D00D398EF /* Repository.swift */; };
 		66CC7B092DBFB43500D398EF /* ForecastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B082DBFB43500D398EF /* ForecastRepository.swift */; };
 		66CC7B0C2DBFB99400D398EF /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B0B2DBFB99400D398EF /* WeatherForecast.swift */; };
+		66CC7B3E2DBFC6CB00D398EF /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B3D2DBFC6CB00D398EF /* Int+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		66CC7B062DBFAF5D00D398EF /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		66CC7B082DBFB43500D398EF /* ForecastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRepository.swift; sourceTree = "<group>"; };
 		66CC7B0B2DBFB99400D398EF /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
+		66CC7B3D2DBFC6CB00D398EF /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		66CC7B042DBFAF2C00D398EF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				66CC7B3C2DBFC6B600D398EF /* Utility */,
 				66CC7B052DBFAF4100D398EF /* Repository */,
 				66CC7AEA2DBF480200D398EF /* Model */,
 			);
@@ -209,6 +212,14 @@
 				66CC7B082DBFB43500D398EF /* ForecastRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		66CC7B3C2DBFC6B600D398EF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				66CC7B3D2DBFC6CB00D398EF /* Int+Extensions.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +365,7 @@
 			files = (
 				66CC7AEC2DBF483C00D398EF /* Region.swift in Sources */,
 				66CC7B012DBF6F3200D398EF /* GetWeatherForecastResponse.swift in Sources */,
+				66CC7B3E2DBFC6CB00D398EF /* Int+Extensions.swift in Sources */,
 				66CC7ADF2DBF46BA00D398EF /* HomeView.swift in Sources */,
 				66CC7AFB2DBF650100D398EF /* HTTPMethod.swift in Sources */,
 				66CC7AFE2DBF664E00D398EF /* GetWeatherForecastRequest.swift in Sources */,
