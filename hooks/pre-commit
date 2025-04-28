@@ -1,0 +1,29 @@
+#!/bin/sh
+## このファイルを変更した後は、必ず以下のコマンドを実行して、/.git/hooks の内容を更新してください。
+## コマンド: % ./setup.sh
+
+# PATH を設定（swiftformat のパスを追加）
+export PATH="/opt/homebrew/bin:$PATH"
+
+# swiftformat を --lint オプション付きで実行
+swiftformat --lint .
+
+# swiftformat の終了コードを取得
+exit_code=$?
+
+# swiftformat の結果を確認
+if [ $exit_code -ne 0 ]; then
+  # フォーマットの必要があるので実行
+  swiftformat .
+
+  echo "Error: This commit was cancelled due to formatting changes."
+  echo "Error: Please fix the errors and then commit again."
+  echo "Hint: You can check the changes with git diff."
+  echo "Info: This check can also be skipped with '% git commit --no-verify'. Not recommended."
+
+  # コミットを中断
+  exit 1
+fi
+
+echo "No formatting issues detected. Proceeding with commit."
+exit 0
