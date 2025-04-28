@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct WeatherView: View {
-    @State private var forecasts: [GetWeatherForecastResponse.Info] = []
+    @State private var forecasts: [WeatherForecast] = []
     @State private var errorMessage: String?
     @State private var showAlert = false
     var region: Region
@@ -17,7 +17,7 @@ struct WeatherView: View {
         switch result {
         case let .success(response):
             DispatchQueue.main.async {
-                self.forecasts = response.list
+                self.forecasts = response
                 self.errorMessage = nil
             }
         case let .failure(error):
@@ -35,7 +35,7 @@ struct WeatherView: View {
                 HStack {
                     Image(systemName: "cloud")
                     VStack(alignment: .leading) {
-                        Text("\(forecast.main.temp)°C")
+                        Text("\(forecast.temp)°C")
                         Text("\(forecast.dt)")
                     }
                 }
