@@ -1,7 +1,19 @@
-enum Region {
+enum Region: CaseIterable {
     case tokyo
     case hyogo
-    case osaka
+    case oita
     case hokkaido
-    case currentRegion
+
+    var code: String {
+        switch self {
+        case .tokyo:
+            return "Tokyo"
+        case .hyogo:
+            return "Hyogo"
+        case .oita:
+            return "Oita"
+        case .hokkaido:
+            return "Hokkaido"
+        }
+    }
 }

@@ -7,7 +7,7 @@ struct WeatherView: View {
     func getWeather() async {
         let result = await APIClient().request(
             item: GetWeatherForecastRequest(
-                parameters: .init(q: "Tokyo")
+                parameters: .init(q: Region.tokyo.code)
             )
         )
         switch result {
