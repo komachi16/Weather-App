@@ -44,6 +44,9 @@
 		66CC7AE42DBF46C500D398EF /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		66CC7AE52DBF46C500D398EF /* WeatherAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		66CC7AEB2DBF483C00D398EF /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		66CC7AED2DBF4E0C00D398EF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		66CC7AEE2DBF4EEE00D398EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		66CC7AEF2DBF4FB400D398EF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 		66CC7A4F2DBE696000D398EF = {
 			isa = PBXGroup;
 			children = (
+				66CC7AEF2DBF4FB400D398EF /* .gitignore */,
+				66CC7AED2DBF4E0C00D398EF /* Config.xcconfig */,
 				66CC7ADD2DBF46BA00D398EF /* WeatherApp */,
 				66CC7AE22DBF46C000D398EF /* WeatherAppTests */,
 				66CC7AE62DBF46C500D398EF /* WeatherAppUITests */,
@@ -94,6 +99,7 @@
 		66CC7ADD2DBF46BA00D398EF /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				66CC7AEE2DBF4EEE00D398EF /* Info.plist */,
 				66CC7AEA2DBF480200D398EF /* Model */,
 				66CC7AE92DBF46DB00D398EF /* View */,
 				66CC7ADA2DBF46BA00D398EF /* Assets.xcassets */,
@@ -321,6 +327,7 @@
 /* Begin XCBuildConfiguration section */
 		66CC7A772DBE696200D398EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66CC7AED2DBF4E0C00D398EF /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -384,6 +391,7 @@
 		};
 		66CC7A782DBE696200D398EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66CC7AED2DBF4E0C00D398EF /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -447,6 +455,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -474,6 +483,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
