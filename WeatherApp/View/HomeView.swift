@@ -5,14 +5,23 @@
 import SwiftUI
 
 struct HomeView: View {
+    var regions: [Region] {
+        Region.allCases
+    }
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                ForEach(regions, id: \.self) { region in
+                    NavigationLink {
+                        WeatherView()
+                    } label: {
+                        Text(region.name)
+                    }
+                }
+            }
+            .navigationTitle("地域を選択")
         }
-        .padding()
     }
 }
 
