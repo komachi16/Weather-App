@@ -31,36 +31,35 @@ struct WeatherView: View {
     }
 
     var body: some View {
-        VStack {
-            List(forecasts, id: \.dt) { forecast in
-                HStack {
-                    Image(systemName: "cloud")
-                    VStack(alignment: .leading) {
-                        Text("\(forecast.temp)°C")
-                        Text("\(forecast.dt)")
-                    }
-                }
+        forecastListView
+            .task {
+                await getWeather() // Viewがロードされたときに天気情報を取得
             }
+            .navigationTitle(region.name)
+            .alert(isPresented: $showAlert) {
+                errorAlert
+            }
+    }
+
+    private var forecastListView: some View {
+        List(forecasts, id: \.date) { forecast in
+            ForecastRow(forecast: forecast)
         }
-        .padding()
-        .task {
-            await getWeather() // Viewがロードされたときに天気情報を取得
-        }
-        .navigationTitle(region.name)
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("エラー"),
-                message: Text(errorMessage ?? "不明なエラーが発生しました。"),
-                primaryButton: .default(Text("リトライ")) {
-                    Task {
-                        await getWeather()
-                    }
-                },
-                secondaryButton: .cancel(Text("戻る")) {
-                    presentationMode.wrappedValue.dismiss()
+    }
+
+    private var errorAlert: Alert {
+        Alert(
+            title: Text("エラー"),
+            message: Text(errorMessage ?? "不明なエラーが発生しました。"),
+            primaryButton: .default(Text("リトライ")) {
+                Task {
+                    await getWeather()
                 }
-            )
-        }
+            },
+            secondaryButton: .cancel(Text("戻る")) {
+                presentationMode.wrappedValue.dismiss()
+            }
+        )
     }
 }
 

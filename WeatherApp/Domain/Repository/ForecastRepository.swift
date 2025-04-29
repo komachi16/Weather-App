@@ -20,10 +20,17 @@ struct ForecastRepository: Repository {
     ) -> [WeatherForecast] {
         return response.list.map {
             WeatherForecast(
-                dt: $0.dt,
+                date: $0.dt.convertToJstDateString(),
                 temp: $0.main.temp,
-                weather: []
+                iconUrl: convertToIconUrlString(iconId: $0.weather.first?.icon)
             )
         }
+    }
+
+    private static func convertToIconUrlString(iconId: String?) -> String {
+        guard let iconId else {
+            return ""
+        }
+        return "https://openweathermap.org/img/wn/\(iconId)@2x.png"
     }
 }

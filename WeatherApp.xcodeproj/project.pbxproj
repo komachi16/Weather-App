@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66C59C862DC118AE00A68E32 /* ForecastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C59C852DC118AE00A68E32 /* ForecastRow.swift */; };
 		66CC7ADE2DBF46BA00D398EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CC7ADA2DBF46BA00D398EF /* Assets.xcassets */; };
 		66CC7ADF2DBF46BA00D398EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7ADB2DBF46BA00D398EF /* HomeView.swift */; };
 		66CC7AE02DBF46BA00D398EF /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7ADC2DBF46BA00D398EF /* WeatherApp.swift */; };
@@ -24,6 +25,9 @@
 		66CC7B072DBFAF5D00D398EF /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B062DBFAF5D00D398EF /* Repository.swift */; };
 		66CC7B092DBFB43500D398EF /* ForecastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B082DBFB43500D398EF /* ForecastRepository.swift */; };
 		66CC7B0C2DBFB99400D398EF /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B0B2DBFB99400D398EF /* WeatherForecast.swift */; };
+		66CC7B3E2DBFC6CB00D398EF /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B3D2DBFC6CB00D398EF /* Int+Extensions.swift */; };
+		66CC7B412DBFCCD800D398EF /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7B402DBFCCD800D398EF /* ImageView.swift */; };
+		66CC7B452DC10CD100D398EF /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 66CC7B442DC10CD100D398EF /* CachedAsyncImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66C59C852DC118AE00A68E32 /* ForecastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRow.swift; sourceTree = "<group>"; };
 		66CC7A582DBE696000D398EF /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CC7A652DBE696200D398EF /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CC7A6F2DBE696200D398EF /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +72,8 @@
 		66CC7B062DBFAF5D00D398EF /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		66CC7B082DBFB43500D398EF /* ForecastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRepository.swift; sourceTree = "<group>"; };
 		66CC7B0B2DBFB99400D398EF /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
+		66CC7B3D2DBFC6CB00D398EF /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		66CC7B402DBFCCD800D398EF /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CC7B452DC10CD100D398EF /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +110,7 @@
 				66CC7ADD2DBF46BA00D398EF /* WeatherApp */,
 				66CC7AE22DBF46C000D398EF /* WeatherAppTests */,
 				66CC7AE62DBF46C500D398EF /* WeatherAppUITests */,
+				66CC7B432DC10CD100D398EF /* Frameworks */,
 				66CC7A592DBE696000D398EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 		66CC7AE92DBF46DB00D398EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				66CC7B3F2DBFCCAD00D398EF /* Component */,
 				66CC7ADB2DBF46BA00D398EF /* HomeView.swift */,
 				66CC7B022DBF7AE000D398EF /* WeatherView.swift */,
 			);
@@ -196,6 +206,7 @@
 		66CC7B042DBFAF2C00D398EF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				66CC7B3C2DBFC6B600D398EF /* Utility */,
 				66CC7B052DBFAF4100D398EF /* Repository */,
 				66CC7AEA2DBF480200D398EF /* Model */,
 			);
@@ -209,6 +220,30 @@
 				66CC7B082DBFB43500D398EF /* ForecastRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		66CC7B3C2DBFC6B600D398EF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				66CC7B3D2DBFC6CB00D398EF /* Int+Extensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		66CC7B3F2DBFCCAD00D398EF /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				66CC7B402DBFCCD800D398EF /* ImageView.swift */,
+				66C59C852DC118AE00A68E32 /* ForecastRow.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		66CC7B432DC10CD100D398EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +264,7 @@
 			);
 			name = WeatherApp;
 			packageProductDependencies = (
+				66CC7B442DC10CD100D398EF /* CachedAsyncImage */,
 			);
 			productName = WeatherApp;
 			productReference = 66CC7A582DBE696000D398EF /* WeatherApp.app */;
@@ -309,6 +345,7 @@
 			packageReferences = (
 				66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 				66CC7AC12DBE83DF00D398EF /* XCRemoteSwiftPackageReference "SwiftFormat" */,
+				66CC7B422DBFD4ED00D398EF /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 66CC7A592DBE696000D398EF /* Products */;
@@ -352,8 +389,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CC7B412DBFCCD800D398EF /* ImageView.swift in Sources */,
 				66CC7AEC2DBF483C00D398EF /* Region.swift in Sources */,
 				66CC7B012DBF6F3200D398EF /* GetWeatherForecastResponse.swift in Sources */,
+				66CC7B3E2DBFC6CB00D398EF /* Int+Extensions.swift in Sources */,
 				66CC7ADF2DBF46BA00D398EF /* HomeView.swift in Sources */,
 				66CC7AFB2DBF650100D398EF /* HTTPMethod.swift in Sources */,
 				66CC7AFE2DBF664E00D398EF /* GetWeatherForecastRequest.swift in Sources */,
@@ -361,6 +400,7 @@
 				66CC7B092DBFB43500D398EF /* ForecastRepository.swift in Sources */,
 				66CC7B0C2DBFB99400D398EF /* WeatherForecast.swift in Sources */,
 				66CC7B032DBF7AE000D398EF /* WeatherView.swift in Sources */,
+				66C59C862DC118AE00A68E32 /* ForecastRow.swift in Sources */,
 				66CC7AE02DBF46BA00D398EF /* WeatherApp.swift in Sources */,
 				66CC7AF92DBF62BE00D398EF /* RequestProtocol.swift in Sources */,
 				66CC7AF72DBF624A00D398EF /* APIError.swift in Sources */,
@@ -541,6 +581,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -569,6 +610,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -708,6 +750,14 @@
 				minimumVersion = 0.55.5;
 			};
 		};
+		66CC7B422DBFD4ED00D398EF /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jakirseu/CachedAsyncImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -715,6 +765,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 66CC7AA62DBE7A9500D398EF /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		66CC7B442DC10CD100D398EF /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66CC7B422DBFD4ED00D398EF /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;
+			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

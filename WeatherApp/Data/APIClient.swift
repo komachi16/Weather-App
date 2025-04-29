@@ -19,8 +19,13 @@ struct APIClient {
             return completion(.failure(.unknown))
         }
 
-        // キャッシュは同日のみ有効にする
-        if let cache = URLCache.shared.cachedResponse(for: urlRequest) {
+        let currentDate = Date()
+
+        // キャッシュの確認
+        if
+            let cache = URLCache.shared.cachedResponse(for: urlRequest),
+            isCacheValid(cache: cache)
+        {
             decode(data: cache.data, completion: completion)
             return
         }
@@ -42,10 +47,30 @@ struct APIClient {
                 return completion(.failure(.unknown))
             }
 
+            let cachedResponse = CachedURLResponse(
+                response: httpResponse,
+                data: data,
+                userInfo: ["date": currentDate],
+                storagePolicy: .allowed
+            )
+            URLCache.shared.storeCachedResponse(cachedResponse, for: urlRequest)
+
             decode(data: data, completion: completion)
         }
 
         task.resume()
+    }
+
+    private func isCacheValid(cache: CachedURLResponse) -> Bool {
+        let currentDate = Date()
+        let japanTimeZone = TimeZone(identifier: "Asia/Tokyo")!
+        var calendar = Calendar.current
+        calendar.timeZone = japanTimeZone
+
+        if let cachedDate = cache.userInfo?["date"] as? Date {
+            return calendar.isDate(currentDate, inSameDayAs: cachedDate)
+        }
+        return false
     }
 
     private func createURLRequest<R: RequestProtocol>(_ requestItem: R) -> URLRequest? {
