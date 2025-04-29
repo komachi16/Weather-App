@@ -1,8 +1,13 @@
-enum Region: CaseIterable, Hashable {
+import CoreLocation
+
+enum Region: Hashable {
+    static var allRegions: [Region] = [.tokyo, .hyogo, .oita, .hokkaido]
+
     case tokyo
     case hyogo
     case oita
     case hokkaido
+    case current(location: CLLocation)
 
     var code: String {
         switch self {
@@ -14,6 +19,8 @@ enum Region: CaseIterable, Hashable {
             return "Oita"
         case .hokkaido:
             return "Hokkaido"
+        case .current:
+            return ""
         }
     }
 
@@ -27,6 +34,8 @@ enum Region: CaseIterable, Hashable {
             return "大分"
         case .hokkaido:
             return "北海道"
+        case .current:
+            return "現在地"
         }
     }
 }
