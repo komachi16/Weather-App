@@ -21,22 +21,13 @@ struct APIClient {
 
         let currentDate = Date()
 
-        // キャッシュは同日のみ有効にする
-        if let cache = URLCache.shared.cachedResponse(for: urlRequest) {
-            // 現在の日付を日本時間で取得
-            let currentDate = Date()
-            let japanTimeZone = TimeZone(identifier: "Asia/Tokyo")!
-            var calendar = Calendar.current
-            calendar.timeZone = japanTimeZone
-
-            // キャッシュの取得日を取得
-            if let cachedDate = cache.userInfo?["date"] as? Date {
-                // 日本時間で同じ日かどうかをチェック
-                if calendar.isDate(currentDate, inSameDayAs: cachedDate) {
-                    decode(data: cache.data, completion: completion)
-                    return
-                }
-            }
+        // キャッシュの確認
+        if
+            let cache = URLCache.shared.cachedResponse(for: urlRequest),
+            isCacheValid(cache: cache)
+        {
+            decode(data: cache.data, completion: completion)
+            return
         }
 
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
@@ -68,6 +59,18 @@ struct APIClient {
         }
 
         task.resume()
+    }
+
+    private func isCacheValid(cache: CachedURLResponse) -> Bool {
+        let currentDate = Date()
+        let japanTimeZone = TimeZone(identifier: "Asia/Tokyo")!
+        var calendar = Calendar.current
+        calendar.timeZone = japanTimeZone
+
+        if let cachedDate = cache.userInfo?["date"] as? Date {
+            return calendar.isDate(currentDate, inSameDayAs: cachedDate)
+        }
+        return false
     }
 
     private func createURLRequest<R: RequestProtocol>(_ requestItem: R) -> URLRequest? {
