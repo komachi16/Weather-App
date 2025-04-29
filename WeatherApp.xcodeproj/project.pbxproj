@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66C59C862DC118AE00A68E32 /* ForecastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C59C852DC118AE00A68E32 /* ForecastRow.swift */; };
 		66CC7ADE2DBF46BA00D398EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CC7ADA2DBF46BA00D398EF /* Assets.xcassets */; };
 		66CC7ADF2DBF46BA00D398EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7ADB2DBF46BA00D398EF /* HomeView.swift */; };
 		66CC7AE02DBF46BA00D398EF /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7ADC2DBF46BA00D398EF /* WeatherApp.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66C59C852DC118AE00A68E32 /* ForecastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRow.swift; sourceTree = "<group>"; };
 		66CC7A582DBE696000D398EF /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CC7A652DBE696200D398EF /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CC7A6F2DBE696200D398EF /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				66CC7B402DBFCCD800D398EF /* ImageView.swift */,
+				66C59C852DC118AE00A68E32 /* ForecastRow.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				66CC7B092DBFB43500D398EF /* ForecastRepository.swift in Sources */,
 				66CC7B0C2DBFB99400D398EF /* WeatherForecast.swift in Sources */,
 				66CC7B032DBF7AE000D398EF /* WeatherView.swift in Sources */,
+				66C59C862DC118AE00A68E32 /* ForecastRow.swift in Sources */,
 				66CC7AE02DBF46BA00D398EF /* WeatherApp.swift in Sources */,
 				66CC7AF92DBF62BE00D398EF /* RequestProtocol.swift in Sources */,
 				66CC7AF72DBF624A00D398EF /* APIError.swift in Sources */,

@@ -31,42 +31,36 @@ struct WeatherView: View {
     }
 
     var body: some View {
-        VStack {
-            List(forecasts, id: \.date) { forecast in
-                HStack {
-                    ImageView(imageUrl: forecast.iconUrl)
-                        .frame(width: 40, height: 40)
-                        .padding(.trailing, 16)
-
-                    VStack(alignment: .leading) {
-                        Text("\(forecast.temp)°C")
-                            .font(.headline)
-                        Text("\(forecast.date)")
-                            .font(.subheadline)
-                    }
-                }
-                .padding(.vertical, 4)
+        forecastListView
+            .padding()
+            .task {
+                await getWeather() // Viewがロードされたときに天気情報を取得
             }
+            .navigationTitle(region.name)
+            .alert(isPresented: $showAlert) {
+                errorAlert
+            }
+    }
+
+    private var forecastListView: some View {
+        List(forecasts, id: \.date) { forecast in
+            ForecastRow(forecast: forecast)
         }
-        .padding()
-        .task {
-            await getWeather() // Viewがロードされたときに天気情報を取得
-        }
-        .navigationTitle(region.name)
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("エラー"),
-                message: Text(errorMessage ?? "不明なエラーが発生しました。"),
-                primaryButton: .default(Text("リトライ")) {
-                    Task {
-                        await getWeather()
-                    }
-                },
-                secondaryButton: .cancel(Text("戻る")) {
-                    presentationMode.wrappedValue.dismiss()
+    }
+
+    private var errorAlert: Alert {
+        Alert(
+            title: Text("エラー"),
+            message: Text(errorMessage ?? "不明なエラーが発生しました。"),
+            primaryButton: .default(Text("リトライ")) {
+                Task {
+                    await getWeather()
                 }
-            )
-        }
+            },
+            secondaryButton: .cancel(Text("戻る")) {
+                presentationMode.wrappedValue.dismiss()
+            }
+        )
     }
 }
 
