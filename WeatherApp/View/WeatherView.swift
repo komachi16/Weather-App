@@ -32,7 +32,6 @@ struct WeatherView: View {
 
     var body: some View {
         forecastListView
-            .padding()
             .task {
                 await getWeather() // Viewがロードされたときに天気情報を取得
             }
