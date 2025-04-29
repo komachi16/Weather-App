@@ -23,8 +23,15 @@ struct APIClient {
 
         // キャッシュは同日のみ有効にする
         if let cache = URLCache.shared.cachedResponse(for: urlRequest) {
+            // 現在の日付を日本時間で取得
+            let currentDate = Date()
+            let japanTimeZone = TimeZone(identifier: "Asia/Tokyo")!
+            var calendar = Calendar.current
+            calendar.timeZone = japanTimeZone
+
+            // キャッシュの取得日を取得
             if let cachedDate = cache.userInfo?["date"] as? Date {
-                let calendar = Calendar.current
+                // 日本時間で同じ日かどうかをチェック
                 if calendar.isDate(currentDate, inSameDayAs: cachedDate) {
                     decode(data: cache.data, completion: completion)
                     return
