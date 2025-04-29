@@ -34,12 +34,18 @@ struct WeatherView: View {
         VStack {
             List(forecasts, id: \.date) { forecast in
                 HStack {
-                    Image(systemName: "cloud")
+                    ImageView(imageUrl: forecast.iconUrl)
+                        .frame(width: 40, height: 40)
+                        .padding(.trailing, 16)
+
                     VStack(alignment: .leading) {
                         Text("\(forecast.temp)°C")
+                            .font(.headline)
                         Text("\(forecast.date)")
+                            .font(.subheadline)
                     }
                 }
+                .padding(.vertical, 4)
             }
         }
         .padding()

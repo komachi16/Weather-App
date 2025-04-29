@@ -1,6 +1,15 @@
 {
-  "originHash" : "ba2873a17e5f04d756383228996bbd065c79c25f2c075b5996400bc16a76698e",
+  "originHash" : "4d7bc5501b02eac1597e2a0a77a2fd1a10deb7069666b64112965e63455fea1b",
   "pins" : [
+    {
+      "identity" : "cachedasyncimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jakirseu/CachedAsyncImage",
+      "state" : {
+        "revision" : "77b32450fdb8eaa868cbc13eb6bbc81ea7b46cd0",
+        "version" : "1.0.2"
+      }
+    },
     {
       "identity" : "swiftformat",
       "kind" : "remoteSourceControl",

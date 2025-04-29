@@ -22,10 +22,15 @@ struct ForecastRepository: Repository {
             WeatherForecast(
                 date: $0.dt.convertToJstDateString(),
                 temp: $0.main.temp,
-                weather: $0.weather.map {
-                    .init(icon: $0.icon)
-                }
+                iconUrl: convertToIconUrlString(iconId: $0.weather.first?.icon)
             )
         }
+    }
+
+    private static func convertToIconUrlString(iconId: String?) -> String {
+        guard let iconId else {
+            return ""
+        }
+        return "https://openweathermap.org/img/wn/\(iconId)@2x.png"
     }
 }
