@@ -19,10 +19,17 @@ struct APIClient {
             return completion(.failure(.unknown))
         }
 
+        let currentDate = Date()
+
         // キャッシュは同日のみ有効にする
         if let cache = URLCache.shared.cachedResponse(for: urlRequest) {
-            decode(data: cache.data, completion: completion)
-            return
+            if let cachedDate = cache.userInfo?["date"] as? Date {
+                let calendar = Calendar.current
+                if calendar.isDate(currentDate, inSameDayAs: cachedDate) {
+                    decode(data: cache.data, completion: completion)
+                    return
+                }
+            }
         }
 
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
@@ -41,6 +48,14 @@ struct APIClient {
             guard let data = data else {
                 return completion(.failure(.unknown))
             }
+
+            let cachedResponse = CachedURLResponse(
+                response: httpResponse,
+                data: data,
+                userInfo: ["date": currentDate],
+                storagePolicy: .allowed
+            )
+            URLCache.shared.storeCachedResponse(cachedResponse, for: urlRequest)
 
             decode(data: data, completion: completion)
         }
