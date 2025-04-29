@@ -10,5 +10,7 @@ struct ImageView: View {
 }
 
 #Preview {
-    ImageView(imageUrl: "https://openweathermap.org/img/wn/10d@2x.png")
+    ImageView(
+        imageUrl: "https://openweathermap.org/img/wn/10d@2x.png"
+    )
 }
