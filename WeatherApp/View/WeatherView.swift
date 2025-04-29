@@ -12,8 +12,17 @@ struct WeatherView: View {
     }
 
     func getWeather() async {
+        let parameter: GetWeatherForecastRequest.Parameters = {
+            switch region {
+            case let .current(location):
+                return .init(lat: location.coordinate.latitude, lon: location.coordinate.longitude)
+            default:
+                return .init(q: region.code)
+            }
+        }()
+
         let result = await ForecastRepository.getWeatherForecast(
-            parameter: .init(q: region.code)
+            parameter: parameter
         )
         switch result {
         case let .success(response):
