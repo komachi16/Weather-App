@@ -13,31 +13,8 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(regions, id: \.self) { region in
-                        NavigationLink(value: region) {
-                            Text(region.name)
-                        }
-                    }
-
-                    if let location = locationManager.location {
-                        NavigationLink(value: location) {
-                            HStack {
-                                Text("現在地を表示")
-                                    .foregroundColor(.blue)
-                                Spacer()
-                            }
-                        }
-                    } else {
-                        Button {
-                            locationManager.requestPermission()
-                        } label: {
-                            HStack {
-                                Text("位置情報を取得")
-                                    .foregroundColor(.blue)
-                                Spacer()
-                            }
-                        }
-                    }
+                    fixedRegionLinks
+                    currentLocationLink
                 }
             }
             .navigationTitle("地域を選択")
@@ -46,6 +23,41 @@ struct HomeView: View {
             }
             .navigationDestination(for: CLLocation.self) { location in
                 WeatherView(region: .current(location: location))
+            }
+        }
+    }
+
+    // 4つの固定リージョンの天気予報へのリンク
+    private var fixedRegionLinks: some View {
+        ForEach(regions, id: \.self) { region in
+            NavigationLink(value: region) {
+                Text(region.name)
+            }
+        }
+    }
+
+    // 現在地の天気予報へのリンク または 位置情報取得ボタン
+    private var currentLocationLink: some View {
+        Group {
+            if let location = locationManager.location {
+                NavigationLink(value: location) {
+                    HStack {
+                        Text("現在地を表示")
+                            .foregroundColor(.blue)
+                        Spacer()
+                    }
+                }
+            } else {
+                NavigationLink(destination: EmptyView()) {
+                    HStack {
+                        Text("位置情報を取得")
+                            .foregroundColor(.blue)
+                        Spacer()
+                    }
+                }
+                .onTapGesture {
+                    locationManager.requestPermission()
+                }
             }
         }
     }
