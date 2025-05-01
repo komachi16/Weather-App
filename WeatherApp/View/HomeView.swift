@@ -4,6 +4,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var locationManager: LocationManager
     @State private var selectedRegion: Region?
+    @State private var showLocationPermissionAlert = false
 
     var regions: [Region] {
         Region.allRegions
@@ -23,6 +24,13 @@ struct HomeView: View {
             }
             .navigationDestination(for: CLLocation.self) { location in
                 WeatherView(region: .current(location: location))
+            }
+            .alert(isPresented: $showLocationPermissionAlert) {
+                Alert(
+                    title: Text("位置情報サービスを\nオンにして下さい"),
+                    message: Text("「設定」アプリ ⇒「プライバシー」⇒「位置情報サービス」からオンにできます"),
+                    dismissButton: .default(Text("OK"))
+                )
             }
         }
     }
@@ -56,7 +64,11 @@ struct HomeView: View {
                     }
                 }
                 .onTapGesture {
-                    locationManager.requestPermission()
+                    if locationManager.authorizationStatus == .notDetermined {
+                        locationManager.requestPermission()
+                    } else {
+                        showLocationPermissionAlert = true
+                    }
                 }
             }
         }
