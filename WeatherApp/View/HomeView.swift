@@ -2,7 +2,7 @@ import CoreLocation
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var locationManager = LocationManager()
+    @EnvironmentObject private var locationManager: LocationManager
     @State private var selectedRegion: Region?
 
     var regions: [Region] {
@@ -52,5 +52,11 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    let locationManager = LocationManager()
+    locationManager.location = CLLocation(
+        latitude: 35.70206900,
+        longitude: 139.77532690
+    )
+    return HomeView()
+        .environmentObject(locationManager)
 }
