@@ -11,29 +11,10 @@ struct WeatherView: View {
         self.region = region
     }
 
-    func getWeather() async {
-        let result = await ForecastRepository.getWeatherForecast(
-            parameter: .init(q: region.code)
-        )
-        switch result {
-        case let .success(response):
-            DispatchQueue.main.async {
-                self.forecasts = response
-                self.errorMessage = nil
-            }
-        case let .failure(error):
-            DispatchQueue.main.async {
-                self.errorMessage = error.errorDescription
-                self.showAlert = true
-                self.forecasts = []
-            }
-        }
-    }
-
     var body: some View {
         forecastListView
             .task {
-                await getWeather() // Viewがロードされたときに天気情報を取得
+                await fetchForecast() // Viewがロードされたときに天気予報を取得
             }
             .navigationTitle(region.name)
             .alert(isPresented: $showAlert) {
@@ -53,13 +34,45 @@ struct WeatherView: View {
             message: Text(errorMessage ?? "不明なエラーが発生しました。"),
             primaryButton: .default(Text("リトライ")) {
                 Task {
-                    await getWeather()
+                    await fetchForecast()
                 }
             },
             secondaryButton: .cancel(Text("戻る")) {
                 presentationMode.wrappedValue.dismiss()
             }
         )
+    }
+
+    private func fetchForecast() async {
+        let parameter = createParameter()
+        let result = await ForecastRepository.getWeatherForecast(parameter: parameter)
+        handleResult(result)
+    }
+
+    private func createParameter() -> GetWeatherForecastRequest.Parameters {
+        switch region {
+        case let .current(location):
+            return .init(
+                lat: location.coordinate.latitude,
+                lon: location.coordinate.longitude
+            )
+        default:
+            return .init(q: region.code)
+        }
+    }
+
+    private func handleResult(_ result: Result<[WeatherForecast], APIError>) {
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(response):
+                self.forecasts = response
+                self.errorMessage = nil
+            case let .failure(error):
+                self.errorMessage = error.errorDescription
+                self.showAlert = true
+                self.forecasts = []
+            }
+        }
     }
 }
 

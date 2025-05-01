@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		66C59C862DC118AE00A68E32 /* ForecastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C59C852DC118AE00A68E32 /* ForecastRow.swift */; };
+		66C59C8A2DC12B8D00A68E32 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C59C892DC12B8D00A68E32 /* LocationManager.swift */; };
 		66CC7ADE2DBF46BA00D398EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CC7ADA2DBF46BA00D398EF /* Assets.xcassets */; };
 		66CC7ADF2DBF46BA00D398EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7ADB2DBF46BA00D398EF /* HomeView.swift */; };
 		66CC7AE02DBF46BA00D398EF /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC7ADC2DBF46BA00D398EF /* WeatherApp.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		66C59C852DC118AE00A68E32 /* ForecastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRow.swift; sourceTree = "<group>"; };
+		66C59C892DC12B8D00A68E32 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		66CC7A582DBE696000D398EF /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CC7A652DBE696200D398EF /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CC7A6F2DBE696200D398EF /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66C59C8B2DC12B9600A68E32 /* Uitility */ = {
+			isa = PBXGroup;
+			children = (
+				66C59C892DC12B8D00A68E32 /* LocationManager.swift */,
+			);
+			path = Uitility;
+			sourceTree = "<group>";
+		};
 		66CC7A4F2DBE696000D398EF = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 				66CC7B3F2DBFCCAD00D398EF /* Component */,
 				66CC7ADB2DBF46BA00D398EF /* HomeView.swift */,
 				66CC7B022DBF7AE000D398EF /* WeatherView.swift */,
+				66C59C8B2DC12B9600A68E32 /* Uitility */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -390,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66CC7B412DBFCCD800D398EF /* ImageView.swift in Sources */,
+				66C59C8A2DC12B8D00A68E32 /* LocationManager.swift in Sources */,
 				66CC7AEC2DBF483C00D398EF /* Region.swift in Sources */,
 				66CC7B012DBF6F3200D398EF /* GetWeatherForecastResponse.swift in Sources */,
 				66CC7B3E2DBFC6CB00D398EF /* Int+Extensions.swift in Sources */,
@@ -576,6 +588,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "ユーザーの現在地の天気予報の取得のため、位置情報を利用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -605,6 +618,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "ユーザーの現在地の天気予報の取得のため、位置情報を利用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
